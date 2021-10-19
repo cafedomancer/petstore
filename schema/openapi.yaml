@@ -4,3 +4,131 @@ info:
   version: "1.0.0"
 servers:
   - url: http://localhost:3000
+paths:
+  /users:
+    post:
+      tags:
+        - Users
+      summary: Create a User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserRequest"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+        "422":
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserError"
+components:
+  schemas:
+    UserRequest:
+      type: object
+      required:
+        - username
+        - password
+        - first_name
+        - last_name
+        - email
+        - phone
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+      example:
+        username: johndoe
+        password: p@ssw0rd
+        first_name: John
+        last_name: Doe
+        email: john.doe@example.com
+        phone: "03-1234-5678"
+    UserResponse:
+      type: object
+      required:
+        - id
+        - username
+        - first_name
+        - last_name
+        - email
+        - phone
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+      example:
+        id: 1
+        username: johndoe
+        first_name: John
+        last_name: Doe
+        email: john.doe@example.com
+        phone: "0312345678"
+    UserError:
+      type: object
+      properties:
+        username:
+          type: array
+          items:
+            type: string
+        password:
+          type: array
+          items:
+            type: string
+        first_name:
+          type: array
+          items:
+            type: string
+        last_name:
+          type: array
+          items:
+            type: string
+        email:
+          type: array
+          items:
+            type: string
+        phone:
+          type: array
+          items:
+            type: string
+      example:
+        username:
+          - "can't be blank"
+          - "has already been taken"
+        password:
+          - "can't be blank"
+          - "is too short (minimum is 6 characters)"
+        first_name:
+          - "can't be blank"
+        last_name:
+          - "can't be blank"
+        email:
+          - "can't be blank"
+          - "has already been taken"
+        phone:
+          - "is invalid"
+          - "can't be blank"
