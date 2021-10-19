@@ -41,6 +41,7 @@ end
 group :test do
   gem 'committee-rails', '~> 0.5.1'
   gem 'faker', '~> 2.19'
+  gem 'rspec-json_matcher', '~> 0.1.6'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
