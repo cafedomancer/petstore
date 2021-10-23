@@ -109,7 +109,6 @@ GEM
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
     openapi_parser (0.15.0)
-    pg (1.2.3)
     puma (5.5.2)
       nio4r (~> 2.0)
     racc (1.5.2)
@@ -174,6 +173,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.4.2)
     thor (1.1.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -192,12 +192,12 @@ DEPENDENCIES
   factory_bot_rails (~> 6.2)
   faker (~> 2.19)
   listen (~> 3.3)
-  pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 6.1.4, >= 6.1.4.1)
   rspec-json_matcher (~> 0.1.6)
   rspec-rails (~> 5.0)
   spring
+  sqlite3 (~> 1.4)
   tzinfo-data
 
 RUBY VERSION
